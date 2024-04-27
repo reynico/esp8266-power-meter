@@ -180,7 +180,7 @@ void prometheus_report(float* currents) {
   data += "# HELP line_current_amps Current (amps) flowing through a voltage line\n";
   data += "# TYPE line_current_amps gauge\n";
   for (int sensor = 0; sensor < NUM_SENSORS; ++sensor) {
-    data += "line_current_amps{line=\"line_" + String(sensor) + "\"} " + String(currents[sensor]) + "\n";
+    data += " + String(sensor) + "\"} " + String(currents[sensor]) + "\n";
   }
 
   data += "# HELP line_watts Power (watts) consumed by a voltage line\n";
