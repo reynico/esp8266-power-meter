@@ -73,6 +73,9 @@ void loop(void) {
   float watts = 0;
   static bool printCurrent = true;
 
+  display.clearDisplay();
+  display.setCursor(0, 0);
+
   for (int sensor = 0; sensor < NUM_SENSORS; ++sensor) {
     watts = currents[sensor] * LINE_VOLTAGE;
     Serial.printf("Sensor %d current: %f\n", sensor, currents[sensor]);
@@ -87,8 +90,6 @@ void loop(void) {
       }
     }
 
-    display.clearDisplay();
-    display.setCursor(0, 0);
     display.println(buffer);
     sum += currents[sensor];
   }
